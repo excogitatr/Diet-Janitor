@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">Diet Janitor</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <array name="food_time">
+        <item>Breakfast</item>
+        <item>Lunch</item>
+        <item>Dinner</item>
+        <item>Snacks</item>
+    </array>
+
+    <array name="quantity">
+        <item>gram</item>
+        <item>milli litre</item>
+    </array>
+
+    <array name="food_list">
+
+        <item>Coffee brewed</item>
+        <item>Black tea</item>
+        <item>cucumber</item>
+        <item>Green Leaf Lettuce, raw</item>
+        <item>White, hard-boiled</item>
+        <item>radish</item>
+        <item>tomato</item>
+        <item>coconut water</item>
+        <item>turnip</item>
+        <item>ladies finger</item>
+        <item>cabbage</item>
+        <item>Cilantro Leaves (Coriander) , raw</item>
+        <item>mustard seeds 5g</item>
+        <item>spinach</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+
+    </array>
+
+
+</resources>

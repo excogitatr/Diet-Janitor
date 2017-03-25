@@ -2,11 +2,18 @@ package com.venky97vp.android.dietjanitor;
 
 import android.content.Context;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.github.lzyzsd.circleprogress.ArcProgress;
+
+import org.eazegraph.lib.charts.ValueLineChart;
+import org.eazegraph.lib.models.ValueLinePoint;
+import org.eazegraph.lib.models.ValueLineSeries;
 
 
 /**
@@ -60,11 +67,41 @@ public class TaskFragment extends Fragment {
         }
     }
 
+    ArcProgress dietProgress;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_task, container, false);
+        View view = inflater.inflate(R.layout.fragment_task, container, false);
+
+        dietProgress = (ArcProgress) view.findViewById(R.id.diet_progress);
+        dietProgress.setFinishedStrokeColor(getResources().getColor(R.color.colorPrimary));
+        dietProgress.setUnfinishedStrokeColor(getResources().getColor(R.color.background));
+        dietProgress.setTextColor(getResources().getColor(R.color.colorPrimary));
+        dietProgress.setProgress(53);
+
+        ValueLineChart mCubicValueLineChart = (ValueLineChart) view.findViewById(R.id.diet_linechart);
+        mCubicValueLineChart.setUseCubic(true);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            mCubicValueLineChart.forceHasOverlappingRendering(true);
+        }
+
+        ValueLineSeries series = new ValueLineSeries();
+        series.setColor(getResources().getColor(R.color.colorPrimary));
+
+        series.addPoint(new ValueLinePoint("Sun", 56));
+        series.addPoint(new ValueLinePoint("Mon", 23));
+        series.addPoint(new ValueLinePoint("Tue", 12));
+        series.addPoint(new ValueLinePoint("Wed", 98));
+        series.addPoint(new ValueLinePoint("Thu", 76));
+        series.addPoint(new ValueLinePoint("Fri", 85));
+        series.addPoint(new ValueLinePoint("Sat", 54));
+
+
+        mCubicValueLineChart.addSeries(series);
+        mCubicValueLineChart.startAnimation();
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

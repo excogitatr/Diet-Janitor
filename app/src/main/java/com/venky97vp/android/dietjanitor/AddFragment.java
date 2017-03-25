@@ -116,6 +116,8 @@ public class AddFragment extends Fragment {
                     row.addView(quantity);
                     row.addView(time);
                     foodTable.addView(row);
+                    foodName.setText("");
+                    foodQuantity.setText("");
                 }else{
                     Toast.makeText(getContext(),"Enter the Values appropriately",Toast.LENGTH_SHORT).show();
                 }

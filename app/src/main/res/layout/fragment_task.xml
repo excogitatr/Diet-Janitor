@@ -2,12 +2,71 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/lib/com.nineoldandroids"
+    android:background="#dcdcdc"
     tools:context="com.venky97vp.android.dietjanitor.TaskFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        android:layout_margin="8dp">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.github.lzyzsd.circleprogress.ArcProgress
+                    android:id="@+id/diet_progress"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_marginBottom="8dp"
+                    android:text="Today's Progress"/>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:orientation="vertical">
+
+                <org.eazegraph.lib.charts.ValueLineChart
+                    android:id="@+id/diet_linechart"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    app:egUseCubic="true"
+                    app:egUseOverlapFill="true"
+                    app:egCurveSmoothness="0.3"
+                    app:egIndicatorLineColor="@color/colorPrimary"
+                    app:egLegendHeight="40dp"
+                    app:egShowStandardValue="true"/>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
 
 </FrameLayout>

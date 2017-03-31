@@ -7,13 +7,17 @@
             android:icon="@drawable/ic_menu_gallery"
             android:title="My Progress" />
         <item
-            android:id="@+id/nav_user"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="User Briefing" />
-        <item
             android:id="@+id/nav_add_food"
             android:icon="@drawable/ic_menu_gallery"
             android:title="Add Consumed Food" />
+        <item
+            android:id="@+id/nav_user"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Profile" />
+        <item
+            android:id="@+id/nav_signout"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Sign out" />
         <!--<item-->
             <!--android:id="@+id/nav_slideshow"-->
             <!--android:icon="@drawable/ic_menu_slideshow"-->

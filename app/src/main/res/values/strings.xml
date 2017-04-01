@@ -6,7 +6,6 @@
 
     <string name="action_settings">Settings</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <array name="food_time">
@@ -35,9 +34,8 @@
     </array>
 
     <array name="food_list">
-
-        <item>Coffee brewed</item>
-        <item>Black tea</item>
+        <item>coffee brewed</item>
+        <item>black tea</item>
         <item>cucumber</item>
         <item>Green Leaf Lettuce, raw</item>
         <item>White, hard-boiled</item>
@@ -50,23 +48,128 @@
         <item>Cilantro Leaves (Coriander) , raw</item>
         <item>mustard seeds 5g</item>
         <item>spinach</item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-
+        <item>cauliflower</item>
+        <item>lemon 100ml</item>
+        <item>watermelon</item>
+        <item>mung dal</item>
+        <item>strawberry</item>
+        <item>cantaloupe</item>
+        <item>carrot</item>
+        <item>beans</item>
+        <item>brinjal</item>
+        <item>Non-Fat Milk</item>
+        <item>papaya</item>
+        <item>onion</item>
+        <item>beetroot</item>
+        <item>Low-Fat Milk (1% fat)</item>
+        <item>plums</item>
+        <item>orange</item>
+        <item>pineapple</item>
+        <item>Reduced-Fat Milk (2% fat)</item>
+        <item>Egg White, cooked, without added fat</item>
+        <item>Apple</item>
+        <item>pear</item>
+        <item>Mango</item>
+        <item>curd</item>
+        <item>milk [100ml]</item>
+        <item>cherry</item>
+        <item>buttermilk</item>
+        <item>Guava</item>
+        <item>grapes</item>
+        <item>oats cook with water</item>
+        <item>fig fruit</item>
+        <item>sweetpotato boiled</item>
+        <item>jujube</item>
+        <item>Scrambled Eggs, 1 large egg w, 1 tbsp non-fat milk, no added fat</item>
+        <item>pomegranate</item>
+        <item>sapota</item>
+        <item>peas</item>
+        <item>potatoboiled</item>
+        <item>banana</item>
+        <item>Reduced-Fat Cottage Cheese (2% milkfat)</item>
+        <item>jackfruit</item>
+        <item>Shrimp, cooked with moist heat</item>
+        <item>custard apple</item>
+        <item>Turkey Breast Luncheon Meat</item>
+        <item>Chicken Breast, without skin, raw</item>
+        <item>Brown rice</item>
+        <item>plantain cooked</item>
+        <item>lentils</item>
+        <item>Pork Boneless Top Loin Chop, lean only, raw</item>
+        <item>capsicum with oil</item>
+        <item>Deviled Egg (large egg), cooked(1/2 egg)</item>
+        <item>Tilapia, cooked with dry heat</item>
+        <item>Lamb Legs Seasoned, Boneless</item>
+        <item>Rice</item>
+        <item>Roasted Turkey Breast, without skin</item>
+        <item>Whole Egg, raw, fresh</item>
+        <item>93% Lean Ground Turkey (7% Fat), raw</item>
+        <item>Pan-broiled 85% Lean Ground Turkey (15% Fat)</item>
+        <item>Omelet w. 1 large egg, 1/2 oz cheese and 1/2 oz ham, cooked</item>
+        <item>Whole Egg, hard-boiled</item>
+        <item>Whole Egg, fried, without added fat</item>
+        <item>Roasted Turkey Dark Meat, without skin</item>
+        <item>chickpeas</item>
+        <item>Roasted Chicken Breast, without skin</item>
+        <item>Roasted Turkey Leg, with skin (fryer-roasters)</item>
+        <item>Regular Boneless Cured Ham (11% fat), roasted</item>
+        <item>Roasted Chicken Leg, without skin</item>
+        <item>Roasted Chicken Breast, with skin</item>
+        <item>Scrambled Eggs, 2 large eggs w. 1 tbsp milk and 1 tsp fat</item>
+        <item>Whole Egg, fried, with Minimal Fat Added</item>
+        <item>Roasted Turkey Wing, with skin</item>
+        <item>Roasted Chicken Thigh, without skin</item>
+        <item>Roasted Chicken Drumstick, with skin</item>
+        <item>Catfish, breaded and fried</item>
+        <item>tamarind</item>
+        <item>apricots</item>
+        <item>instant dry coffee</item>
+        <item>Shrimp, breaded and fried</item>
+        <item>oats bran</item>
+        <item>Roasted Chicken Thigh, with skin</item>
+        <item>fig dried</item>
+        <item>Bacon (strip) and Fried Egg, cooked</item>
+        <item>Batter-dipped and Fried Chicken Breast, with skin</item>
+        <item>white bread</item>
+        <item>brown bread</item>
+        <item>medjool dates</item>
+        <item>Hamburger or Hotdog Roll, Plain</item>
+        <item>Wonton Wrapper (Egg Roll)</item>
+        <item>raisins</item>
+        <item>Whole Milk Mozzarella Cheese</item>
+        <item>Omaha Steaks Chops, Loin</item>
+        <item>peanut boiled</item>
+        <item>Flour-coated and Fried Chicken Wing, with skin</item>
+        <item>Cheesecake</item>
+        <item>Egg Yolk, raw</item>
+        <item>cream</item>
+        <item>coconut raw</item>
+        <item>Basmati rice</item>
+        <item>brownsugar</item>
+        <item>sugar</item>
+        <item>White Rabbit Creamy</item>
+        <item>Cheddar Cheese</item>
+        <item>Parmesan Cheese, grated</item>
+        <item>Rotisserie Chicken Breast, without skin, with original seasoning</item>
+        <item>Bacon, broiled or pan fried</item>
+        <item>cashewnut</item>
+        <item>Sandwich, Egg Salad w. mayo, 3 oz Bread</item>
+        <item>pista</item>
+        <item>pista roasted</item>
+        <item>roasted cashew</item>
+        <item>almonds</item>
+        <item>peanut roasted</item>
+        <item>peanut butter</item>
+        <item>almonds roasted</item>
+        <item>roasted hazelnuts</item>
+        <item>walnuts</item>
+        <item>butter</item>
+        <item>butter salted</item>
+        <item>oil sunflower in g]</item>
+        <item>clarified ghee</item>
     </array>
+
+
     <string name="title_activity_signin">Sign in</string>
 
     <!-- Strings related to login -->

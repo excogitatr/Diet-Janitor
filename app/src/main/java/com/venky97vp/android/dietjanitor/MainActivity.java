@@ -39,6 +39,14 @@ public class MainActivity extends AppCompatActivity
     TextView txtProfileName,emailId;
 
     @Override
+    protected void onStart() {
+        super.onStart();
+//        if(InternetCheck.isInternetAvailable()){
+//            InternetCheck.noInternet(this);
+//        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -46,6 +54,9 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 
+//        if(InternetCheck.isInternetAvailable()){
+//            InternetCheck.noInternet(this);
+//        }
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = database.getReference().child("users").child(mAuth.getCurrentUser().getUid());

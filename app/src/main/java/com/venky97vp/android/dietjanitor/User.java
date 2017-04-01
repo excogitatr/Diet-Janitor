@@ -8,9 +8,13 @@ import java.util.Date;
 
 public class User {
     public String name,uid;
-    int activity,gender;
+    public int activity,gender,age;
     public long dob;
-    public double height,weight;
+    public double height,weight,BMI;
+    public double Carbohydrates,Proteins,Fats,Cholestrol,Sodium,Calcium,Potassium ;
+    public double Calories;
+    public double Unit ;
+    public double BMR = 100 ;
 
     public User(){
     }
@@ -23,5 +27,19 @@ public class User {
         this.dob = dob;
         this.height = height;
         this.weight = weight;
+    }
+
+    public void calculateBMR(){
+        double BMRT=(10*weight)+(6.25*height)-(5*age);
+        BMR = (gender==0)? BMRT+5 :BMRT-161 ;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+        this.calculateBMI();
+        this.calculateBMR();
+    }
+    public void calculateBMI(){
+        BMI=weight/((height*height)/10000) ;
     }
 }

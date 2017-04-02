@@ -1,8 +1,13 @@
 package com.venky97vp.android.dietjanitor;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -37,13 +42,28 @@ public class MainActivity extends AppCompatActivity
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     User value;
     TextView txtProfileName,emailId;
+    AlertDialog internetDialog;
+
+    public boolean isInternetAvailable() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        return cm.getActiveNetworkInfo() != null;
+    }
 
     @Override
     protected void onStart() {
         super.onStart();
-//        if(InternetCheck.isInternetAvailable()){
-//            InternetCheck.noInternet(this);
-//        }
+        if(isInternetAvailable()){
+            displayInternetDialog();
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(internetDialog!=null){
+            internetDialog.dismiss();
+        }
     }
 
     @Override
@@ -66,10 +86,17 @@ public class MainActivity extends AppCompatActivity
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                value = dataSnapshot.getValue(User.class);
-                //Log.d(TAG, "Value is: " + value);
-                txtProfileName.setText(value.name);
-                emailId.setText(mAuth.getCurrentUser().getEmail());
+
+                    value = dataSnapshot.getValue(User.class);
+                    //Log.d(TAG, "Value is: " + value);
+                if(value!=null) {
+                    txtProfileName.setText(value.name);
+                    emailId.setText(mAuth.getCurrentUser().getEmail());
+                }
+                else{
+                    startActivity(new Intent(getApplicationContext(),UserInfoActivity.class));
+                    finish();
+                }
             }
 
             @Override
@@ -135,6 +162,20 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    void displayInternetDialog(){
+        internetDialog = new AlertDialog.Builder(this)
+                .setTitle("No Internet")
+                .setMessage("Please Check your internet connection")
+                .setPositiveButton("settings", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+                    }
+                })
+                .setNegativeButton("ok", null)
+                .show();
+    }
+
     private void displaySelectedScreen(int itemId) {
 
         Fragment fragment = null;
@@ -151,10 +192,21 @@ public class MainActivity extends AppCompatActivity
                 fragment = new TaskFragment();
                 break;
             case R.id.nav_signout:
-                mAuth.signOut();
-                Toast.makeText(getApplicationContext(),"Signed out",Toast.LENGTH_LONG).show();
-                startActivity(new Intent(getApplicationContext(),SigninActivity.class));
-                finish();
+                new AlertDialog.Builder(this)
+                        .setTitle("Sign out")
+                        .setMessage("Do you really want to Sign out from your account?")
+                        .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                mAuth.signOut();
+                                Toast.makeText(getApplicationContext(),"Signed out",Toast.LENGTH_LONG).show();
+                                startActivity(new Intent(getApplicationContext(),SigninActivity.class));
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("no", null)
+                        .show();
+
                 break;
         }
 

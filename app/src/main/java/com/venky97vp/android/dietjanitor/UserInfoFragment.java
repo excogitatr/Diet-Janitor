@@ -100,21 +100,33 @@ public class UserInfoFragment extends Fragment implements EditUserFragment.OnFra
                 // whenever data at this location is updated.
                 value = dataSnapshot.getValue(User.class);
                 //Log.d(TAG, "Value is: " + value);
-
-                name.setText(value.name);
-                age.setText(Integer.toString(value.age));
-                weight.setText(Double.toString(value.weight));
-                height.setText(Double.toString(value.height));
-                if(value.gender==0) {
-                    gender.setText("Male");
-                }else{
-                    gender.setText("Female");
+                if(value!=null) {
+                    name.setText(value.name);
+                    age.setText(Integer.toString(value.age));
+                    weight.setText(Double.toString(value.weight));
+                    height.setText(Double.toString(value.height));
+                    if (value.gender == 0) {
+                        gender.setText("Male");
+                    } else {
+                        gender.setText("Female");
+                    }
+                    switch (value.activity) {
+                        case 0:
+                            activity.setText("Sedentary");
+                            break;
+                        case 1:
+                            activity.setText("Low Active");
+                            break;
+                        case 2:
+                            activity.setText("Active");
+                            break;
+                        case 3:
+                            activity.setText("Very Active");
+                            break;
+                    }
                 }
-                switch (value.activity){
-                    case 0 : activity.setText("Sedentary");break;
-                    case 1 : activity.setText("Low Active");break;
-                    case 2 : activity.setText("Active");break;
-                    case 3 : activity.setText("Very Active");break;
+                else{
+                    startActivity(new Intent(getContext(),UserInfoActivity.class));
                 }
             }
 

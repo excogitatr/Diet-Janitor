@@ -6,6 +6,15 @@
     android:background="#dcdcdc"
     tools:context="com.venky97vp.android.dietjanitor.AddFragment">
 
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/result_button"
+        android:layout_gravity="end|bottom"
+        app:fabSize="normal"
+        app:srcCompat="@drawable/ic_action_result"
+        android:layout_margin="16dp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

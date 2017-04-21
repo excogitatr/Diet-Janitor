@@ -15,6 +15,7 @@ public class User {
     public double Calories;
     public double Unit ;
     public double BMR = 100 ;
+    public int oneDayProg;
 
     public User(){
     }
@@ -29,6 +30,14 @@ public class User {
         this.weight = weight;
     }
 
+    private void update(){
+        this.calculateBMI();
+        this.calculateBMR();
+        //this.calculateProtien();
+        //this.calculateFat();
+        //this.calculateCarbohydrate();
+    }
+
     public void calculateBMR(){
         double BMRT=(10*weight)+(6.25*height)-(5*age);
         BMR = (gender==0)? BMRT+5 :BMRT-161 ;
@@ -36,9 +45,8 @@ public class User {
 
     public void setHeight(double height) {
         this.height = height;
-        this.calculateBMI();
-        this.calculateBMR();
     }
+
     public void calculateBMI(){
         BMI=weight/((height*height)/10000) ;
     }

@@ -1,6 +1,7 @@
 package com.venky97vp.android.dietjanitor;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -33,7 +34,7 @@ public class AddFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
 
-    FloatingActionButton addButton;
+    FloatingActionButton addButton,resultButton;
     TableLayout foodTable;
     EditText foodName, foodQuantity;
     Spinner foodTime, foodMeasure;
@@ -93,6 +94,7 @@ public class AddFragment extends Fragment {
 
         foodTable = (TableLayout) view.findViewById(R.id.food_table);
         addButton = (FloatingActionButton) view.findViewById(R.id.add_food_button);
+        resultButton = (FloatingActionButton) view.findViewById(R.id.result_button);
 
         foodName = (EditText) view.findViewById(R.id.food_search);
         foodQuantity = (EditText) view.findViewById(R.id.food_quantity);
@@ -121,6 +123,13 @@ public class AddFragment extends Fragment {
                 }else{
                     Toast.makeText(getContext(),"Enter the Values appropriately",Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        resultButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(),ExpandedRecycler.class));
             }
         });
 

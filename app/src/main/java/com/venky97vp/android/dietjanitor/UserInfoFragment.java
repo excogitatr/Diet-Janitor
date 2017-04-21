@@ -107,8 +107,10 @@ public class UserInfoFragment extends Fragment implements EditUserFragment.OnFra
                     height.setText(Double.toString(value.height));
                     if (value.gender == 0) {
                         gender.setText("Male");
-                    } else {
+                    } else if(value.gender == 1){
                         gender.setText("Female");
+                    }else{
+                        gender.setText("Other");
                     }
                     switch (value.activity) {
                         case 0:

@@ -1,6 +1,7 @@
 package com.venky97vp.android.dietjanitor;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -10,10 +11,19 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.github.lzyzsd.circleprogress.ArcProgress;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.LimitLine;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
 
 import org.eazegraph.lib.charts.ValueLineChart;
 import org.eazegraph.lib.models.ValueLinePoint;
 import org.eazegraph.lib.models.ValueLineSeries;
+
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.Random;
 
 
 /**
@@ -80,7 +90,7 @@ public class TaskFragment extends Fragment {
         dietProgress.setTextColor(getResources().getColor(R.color.colorPrimary));
         dietProgress.setProgress(53);
 
-        ValueLineChart mCubicValueLineChart = (ValueLineChart) view.findViewById(R.id.diet_linechart);
+        /*ValueLineChart mCubicValueLineChart = (ValueLineChart) view.findViewById(R.id.diet_linechart);
         mCubicValueLineChart.setUseCubic(true);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             mCubicValueLineChart.forceHasOverlappingRendering(true);
@@ -100,11 +110,71 @@ public class TaskFragment extends Fragment {
 
         mCubicValueLineChart.addSeries(series);
         mCubicValueLineChart.startAnimation();
+*/
+        LineChart monthChart = (LineChart) view.findViewById(R.id.diet_MPLineChartMonth);
+
+        ArrayList<Entry> points = new ArrayList<Entry>();
+        for (int i = 0; i < 28; i++) {
+            points.add(new Entry(1750 + new Random().nextInt(1500), i));
+        }
+        LineDataSet dataSet = new LineDataSet(points, "Calories/Day in KCals");
+        dataSet.setDrawFilled(true);
+        ArrayList<String> Labels = new ArrayList<String>();
+        for (int i = 28; i >= 1; i--) {
+            Labels.add(Integer.toString(i));
+        }
+        LimitLine RequiredCalorie = new LimitLine(2500f);
+        LineData monthChartData = new LineData(Labels, dataSet);
+        monthChart.getAxisLeft().addLimitLine(RequiredCalorie);
+        monthChart.setData(monthChartData);
+        monthChart.setDescription("One Month data");
+        monthChart.zoom(2.2f, 0f, 0f, 0f);
+        monthChart.setGridBackgroundColor(Color.WHITE);
+        monthChart.getXAxis().setDrawGridLines(false);
+        monthChart.getAxisRight().setDrawGridLines(false);
+        monthChart.getAxisLeft().setDrawGridLines(false);
+        monthChart.getAxisLeft().setDrawLabels(false);
+        monthChart.getAxisRight().setDrawLabels(false);
+        monthChart.getXAxis().setTextColor(Color.parseColor("#A9A9A9"));
+        monthChart.getAxisLeft().setAxisLineColor(Color.parseColor("#00FF0000"));
+        monthChart.getAxisRight().setAxisLineColor(Color.parseColor("#00FF0000"));
+        monthChart.getLineData().setValueTextColor(Color.parseColor("#C0C0C0"));
+        monthChart.getXAxis().setAxisLineColor(Color.parseColor("#00FF0000"));
+        monthChart.animateXY(1000, 1000);
+
+        LineChart WeekChart = (LineChart) view.findViewById(R.id.diet_MPLineChartWeek);
+        ArrayList<Entry> WeekEntries = new ArrayList<Entry>();
+        String[] weeks = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
+        ArrayList<String> LabelsMonth = new ArrayList<String>();
+        for (int i = 0; i < 7; i++) {
+            LabelsMonth.add(weeks[i]);
+            WeekEntries.add(new Entry(1700 + new Random().nextInt(1500), i));
+        }
+        LineDataSet weekDataSet = new LineDataSet(WeekEntries, "Calories this week");
+        weekDataSet.setDrawFilled(true);
+        LineData WeekData = new LineData(LabelsMonth, weekDataSet);
+        WeekChart.setData(WeekData);
+        WeekChart.getAxisLeft().addLimitLine(RequiredCalorie);
+        WeekChart.setDescription("One week data");
+        WeekChart.setBorderColor(getResources().getColor(R.color.colorAccent));
+        WeekChart.setGridBackgroundColor(Color.WHITE);
+        WeekChart.getXAxis().setDrawGridLines(false);
+        WeekChart.getAxisLeft().setDrawGridLines(false);
+        WeekChart.getAxisRight().setDrawGridLines(false);
+        WeekChart.getAxisLeft().setDrawLabels(false);
+        WeekChart.getLineData().setValueTextColor(Color.parseColor("#C0C0C0"));
+        WeekChart.getAxisRight().setDrawLabels(false);
+        WeekChart.getXAxis().setTextColor(Color.parseColor("#A9A9A9"));
+        WeekChart.getAxisLeft().setAxisLineColor(Color.parseColor("#00FF0000"));
+        WeekChart.getAxisRight().setAxisLineColor(Color.parseColor("#00FF0000"));
+        WeekChart.getXAxis().setAxisLineColor(Color.parseColor("#00FF0000"));
+        WeekChart.setDrawingCacheBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        WeekChart.animateXY(1000, 1000);
+
 
         return view;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
